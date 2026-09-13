@@ -1,24 +1,72 @@
 # mcSchem-for-redstone
-A program that generates towers of Redstone componants to encode numbers in Minecraft
 
-## Functions
-* three ways to encode data (in binary):
-  * barrels
-  * repeaters
-  * levers
-* for other bases (between 2 and 16) only barrels are available.
-* you can choose how many numbers you want to encode at once, evvery towers will be separated by one block.
-* you can encode numbers one by one or use the in-built function tool, see below for more details on it.
-* the program supports only fixe point numbers, you can choose the format, or give a maximal size, and the program will compute the format in function of the maximal integer size.
-* it only work for minecraft 1.21, the schems may not work for other versions.
-* you need world edit for loading the schems and rotating them.
+A tool that generates Redstone component towers to encode numbers directly into Minecraft `.schem` files.
 
-## Download
-download the "mc schem generator" directory, and run launcher.bat, if you don't have a java 21 on your computer, it will download it for you and run the program.
+---
 
-## How to use :
-* run launcher.bat
-* a window will open
-* answer the questions it will ask you in this window
-* a file .schem has been created, copy paste this file in /config/worldedit/schematics
-* run the command //schem load FILE_NAME.schem in minecraft and then //paste
+## 🛠️ Features
+
+* **Multiple Encoding Methods (Binary):**
+  * Barrels (container inventory signal)
+  * Repeaters (present or not)
+  * Levers (on/off states)
+* **Custom Base Encoding:** Supports bases **2 through 16** (available with barrels only).
+* **Batch Towers:** Encode multiple numbers at once. Towers are automatically separated by 1 block.
+* **Flexible Input:** Encode individual numbers manually or generate values using mathematical functions.
+* **Fixed-Point Precision:** Operates on fixed-point numbers. Define your custom format or specify a maximum value, and the program will automatically calculate the optimal fixed-point format.
+* **Compatibility:** Designed for **Minecraft 1.21**. Schematics may not work as intended on older versions.
+* **WorldEdit Required:** Requires WorldEdit to load, place, and rotate the generated schematic files.
+
+---
+
+## 📥 Download & Installation
+
+1. Download or clone the `mc schem generator` directory.
+2. Run `launcher.bat`.
+   * *Note: If Java 21 is not installed on your system, the script will automatically download and set it up for you.*
+
+---
+
+## 🚀 How to Use
+
+1. Launch the application via `launcher.bat`.
+2. Follow the interactive CLI prompts in the terminal window.
+3. Once completed, your `.schem` file will be generated in the output directory.
+4. Move or copy the generated `.schem` file to your Minecraft server/client folder:
+   .minecraft/config/worldedit/schematics/
+5. In Minecraft, load and place your schematic using WorldEdit commands:
+```text
+//schem load <FILE_NAME>
+//paste
+```
+## 🧮 Math & Function Engine
+
+When choosing to encode via functions instead of raw numbers, you can use built-in operators and mathematical functions.
+
+### Available Operators
+`+`, `-`, `*`, `/`, `^` *(exponentiation)*
+
+### Variables & Constants
+* `x` or `-x` *(evaluates over a range)*
+* `pi`
+
+### Built-in Functions
+
+| Category | Functions |
+| :--- | :--- |
+| **Trigonometric** | `sin`, `cos`, `tan`, `atan` |
+| **Hyperbolic** | `sinh`, `cosh`, `tanh`, `atanh` |
+| **Exponential & Log** | `exp`, `sqrt`, `log`, `ln` |
+
+---
+
+### Function Syntax
+
+* **`FUNCTION_NAME`**  
+  Computes the given function using the variable `x` *(e.g., `sin` evaluates `sin(x)`)*.
+
+* **`FUNCTION_NAME(VALUE)`**  
+  Computes the function for a specific `VALUE`. `VALUE` can be a raw number, an expression, or another nested function *(e.g., `sin(cos(x))` or `sqrt(16)`)*.
+
+> ⚠️ **Current Limitation (v1.0):**  
+> User-defined custom expressions cannot be directly mixed with built-in function names inside composite functions yet. Always leave a space between arguments and operators. Numbers are parsed as signed doubles.
