@@ -21,7 +21,7 @@ A tool that generates Redstone component towers to encode numbers directly into 
 
 ## 📥 Download & Installation
 
-1. Download or clone the `mc schem generator` directory.
+1. Download or clone the `main` directory.
 2. Run `launcher.bat`.
    * *Note: If Java 21 is not installed on your system, the script will automatically download and set it up for you.*
 
