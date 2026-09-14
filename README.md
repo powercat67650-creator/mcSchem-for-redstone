@@ -49,6 +49,12 @@ When choosing to encode via functions instead of raw numbers, you can use built-
 ### Variables & Constants
 * `x` or `-x` *(evaluates over a range)*
 * `pi`
+* `e`
+
+### Priority of Operations
+* **No operator precedence:** Operators are evaluated strictly from left to right.
+* Use **parentheses** to define execution order.
+* **Example:** Do not write `3 + 2 * x`. Write `3 + (2 * x)` instead.
 
 ### Built-in Functions
 
@@ -69,4 +75,4 @@ When choosing to encode via functions instead of raw numbers, you can use built-
   Computes the function for a specific `VALUE`. `VALUE` can be a raw number, an expression, or another nested function *(e.g., `sin(cos(x))` or `sqrt(16)`)*.
 
 > ⚠️ **Current Limitation (v1.0):**  
-> User-defined custom expressions cannot be directly mixed with built-in function names inside composite functions yet. Always leave a space between arguments and operators. Numbers are parsed as signed doubles.
+>Always leave a space between arguments and operators. Numbers are parsed as signed doubles. 
